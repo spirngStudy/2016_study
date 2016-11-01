@@ -7,15 +7,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
 <title>2016_Study</title>
-<link rel="stylesheet" type="text/css" href="<study:url value="/css/bootstrap.min.css"/>"/>
-<%-- <link rel="stylesheet" type="text/css" href="<study:url value="/css/ext-all.css"/>"/> --%>
-<script type="text/javascript" src="<study:url value="/js/jquery/jquery-1.10.2.js"/>"></script>
-<script type="text/javascript" src="<study:url value="/js/bootstrap.min.js"/>"></script>
-<script type="text/javascript" src="<study:url value="/js/angular-1.4.3/angular.min.js"/>"></script>
-<script type="text/javascript" src="<study:url value="/js/angular-1.4.3/angular-animate.min.js"/>"></script>
-<script type="text/javascript" src="<study:url value="/js/angular-1.4.3/i18n/angular-locale_ko-kr.js"/>"></script>
-<script type="text/javascript" src="<study:url value="/js/ui-bootstrap-tpls-0.13.2.min.js"/>"></script>
-<%-- <script type="text/javascript" src="<study:url value="/js/extjs/ext-all.js"/>"></script> --%>
+<link rel="stylesheet" type="text/css" href="<study:url value="/resources/css/bootstrap.min.css"/>"/>
+<%-- <link rel="stylesheet" type="text/css" href="<study:url value="/resources/css/ext-all.css"/>"/> --%>
+<script type="text/javascript" src="<study:url value="/resources/js/jquery/jquery-1.10.2.js"/>"></script>
+<script type="text/javascript" src="<study:url value="/resources/js/bootstrap.min.js"/>"></script>
+<script type="text/javascript" src="<study:url value="/resources/js/angular-1.4.3/angular.min.js"/>"></script>
+<script type="text/javascript" src="<study:url value="/resources/js/angular-1.4.3/angular-animate.min.js"/>"></script>
+<script type="text/javascript" src="<study:url value="/resources/js/angular-1.4.3/i18n/angular-locale_ko-kr.js"/>"></script>
+<script type="text/javascript" src="<study:url value="/resources/js/ui-bootstrap-tpls-0.13.2.min.js"/>"></script>
+<%-- <script type="text/javascript" src="<study:url value="/resources/js/extjs/ext-all.js"/>"></script> --%>
 <script type="text/javascript">
 
     $(document).ready(function() {
