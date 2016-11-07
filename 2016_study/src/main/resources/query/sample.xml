@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="co.kr.sms.sample">
+	<select id="selectMemberList" parameterType="map" resultType="map">
+		SELECT 
+			*
+		  FROM 
+		    MEMBER_INFO
+	</select>
+	
+	<select id="selectBoardList" parameterType="map" resultType="map">
+		SELECT
+		    IDX,
+		    TITLE,
+		    HIT_CNT,
+		    CREA_DTM
+		FROM
+		    TB_BOARD
+		WHERE
+		    DEL_GB = 'N'    
+		ORDER BY IDX DESC
+	</select>
+	
+	<insert id="insertBoard" parameterType="map">
+		 INSERT INTO TB_BOARD
+        (
+            TITLE, 
+            CONTENTS, 
+            HIT_CNT, 
+            DEL_GB, 
+            CREA_DTM, 
+            CREA_ID
+        )
+        VALUES
+        (
+            #{TITLE}, 
+            #{CONTENTS}, 
+            0, 
+            'N', 
+            NOW(), 
+            'Admin'
+        )
+	</insert>
+	
+	<select id="selectBoardDetail" parameterType="map" resultType="map" >
+		SELECT
+            IDX,
+            HIT_CNT,
+            CREA_ID,
+            CREA_DTM,
+            TITLE,
+            CONTENTS
+        FROM
+            TB_BOARD
+        WHERE
+            IDX = #{IDX}
+	</select>
+	
+	<update id="updateHitCnt" parameterType="map" >
+		UPDATE TB_BOARD 
+        SET
+            HIT_CNT = IFNULL(HIT_CNT, 0) + 1
+        WHERE
+            IDX = #{IDX}
+	</update>
+	
+	<insert id="insertTest" parameterType="map">
+		 INSERT INTO TB_BOARD
+        (
+        	IDX,
+            TITLE, 
+            CONTENTS, 
+            HIT_CNT, 
+            DEL_GB, 
+            CREA_DTM, 
+            CREA_ID
+        )
+        VALUES
+        (
+        	1,
+            "1234", 
+            "12345", 
+            0, 
+            'N', 
+            NOW(), 
+            'Admin'
+        )
+	</insert>
+	
+	<update id="updateBoard" parameterType="map">
+		UPDATE TB_BOARD SET
+			TITLE = #{TITLE},
+			CONTENTS = #{CONTENTS}
+		WHERE
+			IDX = #{IDX}
+	</update>
+	
+	<delete id="deleteBoard" parameterType="map"	>
+		DELETE FROM TB_BOARD
+		WHERE 
+			IDX = #{IDX}
+	</delete>
+</mapper>
