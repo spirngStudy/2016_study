@@ -19,18 +19,23 @@
         <property name="mapperLocations">
             <list>
                 <value>classpath*:sqlmap/*Mapper.xml</value>
+                <value>classpath:query/**/*.xml</value>
             </list>
         </property>
     </bean>
 
     <!-- scan for mappers and let them be autowired -->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="com.study.bbs" />
+        <property name="basePackage" value="com.study" />
         <property name="annotationClass" value="org.springframework.stereotype.Repository"/>
     </bean>
     
+    <bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
+        <constructor-arg index="0" ref="sqlSessionFactory"/>
+    </bean>
+    
     <!-- Transaction -->
-  <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-    <property name="dataSource" ref="dataSource"/>
-  </bean>
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+      <property name="dataSource" ref="dataSource"/>
+    </bean>
 </beans>

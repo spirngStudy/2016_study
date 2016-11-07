@@ -7,9 +7,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
 <title>2016_Study</title>
+<script type="text/javascript" src="<study:url value="/resources/js/jquery/jquery-1.10.2.js"/>"></script>
 <link rel="stylesheet" type="text/css" href="<study:url value="/resources/css/bootstrap.min.css"/>"/>
 <%-- <link rel="stylesheet" type="text/css" href="<study:url value="/resources/css/ext-all.css"/>"/> --%>
-<script type="text/javascript" src="<study:url value="/resources/js/jquery/jquery-1.10.2.js"/>"></script>
 <script type="text/javascript" src="<study:url value="/resources/js/bootstrap.min.js"/>"></script>
 <script type="text/javascript" src="<study:url value="/resources/js/angular-1.4.3/angular.min.js"/>"></script>
 <script type="text/javascript" src="<study:url value="/resources/js/angular-1.4.3/angular-animate.min.js"/>"></script>
