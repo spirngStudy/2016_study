@@ -6,5 +6,5 @@
  
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>  
-<script type="text/javascript" src="<c:url value="/resources/js/jquery/jquery-1.10.2.js"/>"></script>
+<%-- <script type="text/javascript" src="<c:url value="/resources/js/jquery/jquery-1.10.2.js"/>"></script> --%>
 <script src="<c:url value='/resources/js/common/common.js'/>" charset="utf-8"></script>

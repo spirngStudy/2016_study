@@ -15,9 +15,6 @@ import com.study.sample.service.SampleService;
 
 @Service
 public class SampleServiceImpl implements SampleService{
-	
-	
-
 
 	private static final Logger logger = LoggerFactory.getLogger(SampleServiceImpl.class);
 	

@@ -11,7 +11,7 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">신림동 Spring 3.x Study</a>
+            <a class="navbar-brand" href="#">12st Spring 3.x Study</a>
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
@@ -40,7 +40,7 @@
   <div class="jumbotron">
     <h1>2016 Spring Study</h1> 
     <p>JDK 1.8 + Tomcat 8.0 </p> 
-    <p>STS Spring 3.1 RELEASE + Maven + log4j + Tiles2 + Mybatis + Mysql </p> 
+    <p>STS Spring 3.2.9 RELEASE + Maven + logback + Tiles2 + Mybatis + MariaDB </p> 
     <p>Encoding : UTF-8 </p> 
     <p><button type="button" class="btn btn-default">jQuery 1.9</button>
 		<button type="button" class="btn btn-primary">jQuery UI</button>

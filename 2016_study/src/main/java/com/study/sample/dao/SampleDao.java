@@ -10,7 +10,7 @@ import com.study.common.util.QueryMapper;
 @Repository
 public class SampleDao extends QueryMapper {
 	
-	private String namespace = "co.kr.sms.sample.";
+	private String namespace = "com.study.sample.";
 	
 	@SuppressWarnings("unchecked")
 	public List<Map<String, String>> selectMemberList() {

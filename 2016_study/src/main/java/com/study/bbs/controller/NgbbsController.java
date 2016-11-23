@@ -28,7 +28,7 @@ public class NgbbsController {
   public String dispNgBbsList(Model model) {
       //List<BbsVo> list = this.bbsDao.getSelect();
       //model.addAttribute("list", list);
-
+	  
       return "/board/ngBbsList.tiles";
   }
   

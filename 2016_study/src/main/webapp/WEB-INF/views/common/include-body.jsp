@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form id="commonForm" name="commonForm"></form>
+<!-- <form id="commonForm" name="commonForm"  ng-submit="submitQuery()"></form> -->
+<form id="commonForm" name="commonForm" ></form>
 </body>
 </html>

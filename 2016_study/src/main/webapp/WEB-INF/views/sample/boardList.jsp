@@ -2,6 +2,10 @@
 <%@ include file="/WEB-INF/views/common/include-header.jsp" %>
 <script type="text/javascript">
 	$(document).ready(function(){
+		// 부트스트랩
+		$(":file").filestyle({classButton: "btn btn-primary"});
+		
+		
 	    $("#write").on("click", function(e){ //글쓰기 버튼
 	        e.preventDefault();
 	        fn_openBoardWrite();
@@ -10,6 +14,16 @@
 	    $("a[name='title']").on("click", function(e){ //제목 
 	        e.preventDefault();
 	        fn_openBoardDetail($(this));
+	    });
+	    
+	    $("#excelUpload").on("click", function(e){
+	    	e.preventDefault();
+	    	fn_excelFileUpload();
+	    });
+	    
+	    $("#excelDownload").on("click", function(e){
+	    	e.preventDefault();
+	    	fn_excelFileDownload();
 	    });
 	});
 	
@@ -25,11 +39,24 @@
         comSubmit.addParam("IDX", obj.parent().find("#IDX").val());
         comSubmit.submit();
     }
+    
+    function fn_excelFileUpload(){
+    	$('#excelForm').attr({action:'/sample/excelFileUpload', method:'post'}).submit();
+    }
+    
+    function fn_excelFileDownload() {
+    	var comSubmit = new ComSubmit();
+    	comSubmit.setUrl("<c:url value='/excelFileDownload' />");
+    	comSubmit.submit();
+    }
+    
+    
 </script>
 </head>
-<body>
-<div class="table">
-	<h2>게시판 목록</h2>
+<div class="container">
+	<div class="page-header" >
+		<p class="h3">게시판 목록</p>
+	</div>
 	<div class="table-responsive">
 		<table class="table">
 		    <colgroup>
@@ -70,7 +97,44 @@
 		    </tbody>
 		</table>
 	</div>
+	<br/>
+	<div class="page-footer">
+		<div style="float: left; margin: 0 auto;">
+			<a href="#this" id="write" class="btn btn-success">글쓰기</a>
+		</div>
+		<div style="float: right; margin: 0 auto;">
+			<button type="button" class="btn btn-warning" data-target="#layerpop" data-toggle="modal" >excel 업로드</button>
+			<button id="excelDownload" type="button" class="btn btn-danger">excel 다운로드</button>
+		</div>
+	</div>
 </div>
-<br/>
-<a href="#this" id="write" class="btn btn-success">글쓰기</a>
+
+<!-- 모달팝업 -->
+<div class="modal fade" id="layerpop" >
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- header -->
+      <div class="modal-header">
+        <!-- 닫기(x) 버튼 -->
+        <button type="button" class="close" data-dismiss="modal">×</button>
+        <!-- header title -->
+        <h4 class="modal-title">엑셀업로드</h4>
+      </div>
+      <!-- body -->
+      <div class="modal-body">
+      	<form id="excelForm" name="excelForm" enctype="multipart/form-data">
+	      	<div class="form-group">
+	      		<input name="file" type="file" class="filestyle" data-classButton="btn btn-primary">
+	      	</div>
+      	</form>
+      </div>
+      <!-- Footer -->
+      <div class="modal-footer">
+        <button id="excelUpload" type="button" class="btn btn-default">업로드</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- //모달팝업 -->
 <%@ include file="/WEB-INF/views/common/include-body.jsp" %>

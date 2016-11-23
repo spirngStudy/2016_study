@@ -4,28 +4,99 @@
   xmlns:p="http://www.springframework.org/schema/p" 
   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
   
-  <!-- Root Context: defines shared resources visible to all other web components -->
-  <bean class="org.springframework.web.servlet.view.UrlBasedViewResolver"
-      p:order="2" 
-        p:viewClass="org.springframework.web.servlet.view.JstlView" 
-        p:prefix="/WEB-INF/views/" p:suffix=".jsp" />
-  
-  <!-- Tiles 2 Resolver -->
-  <bean id="tilesViewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver"
-    p:order="1"
-    p:viewClass="org.springframework.web.servlet.view.tiles2.TilesView" />
+	<!-- Root Context: defines shared resources visible to all other web components -->
+	
+	
+	<!-- ContentNegotiatingViewResolver -->
+	<!-- <bean id="contentNegotiatingResolver"
+			class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
+		<property name="order" 
+				  value="#{T(org.springframework.core.Ordered).HIGHEST_PRECEDENCE}" />
+		<property name="contentNegotiationManager">
+			<bean class="org.springframework.web.accept.ContentNegotiationManager">
+				<constructor-arg>
+					<bean class="org.springframework.web.accept.PathExtensionContentNegotiationStrategy">
+						<constructor-arg>
+							<map>
+								<entry key="xsl" value="application/vnd.ms-excel"/>
+								<entry key="json" value="application/json"/>
+								<entry key="html" value="text/html"/>
+								<entry key="pdf" value="application/pdf"/>
+							</map>
+						</constructor-arg>
+					</bean>
+				</constructor-arg>
+			</bean>
+		</property>
+		<property name="viewResolvers">
+			<list>
+				<bean id="tilesView" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+					<property name="order" value="1"/>
+					<property name="viewClass" value="org.springframework.web.servlet.view.tiles2.TilesView"/>
+				</bean>
+				<bean id="beanView" class="org.springframework.web.servlet.view.BeanNameViewResolver">
+					<property name="order" value="2"/>
+				</bean>
+				<bean id="jspView" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+			        Example: a logical view name of 'showMessage' is mapped to '/WEB-INF/jsp/showMessage.jsp'
+			        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView" />
+			        <property name="order" value="3" />
+			        <property name="prefix" value="/WEB-INF/views/"/>
+			        <property name="suffix" value=".jsp"/>
+			        <property name="contentType" value="text/html; charset=UTF-8" />
+				</bean>
+			</list>
+		</property>
+		<property name="defaultViews">
+			<list>
+				<bean id="excelView"  class="com.study.common.view.ExcelView"/>
+				<bean id="jsonView" class="org.springframework.web.servlet.view.json.MappingJacksonJsonView"/>
+			</list>
+		</property>
+	</bean> -->
+	
+	<!-- Tiles 2 Configurer -->
+	<!-- <bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles2.TilesConfigurer">
+	  <property name="definitions">
+	    <list>
+	      <value>/WEB-INF/tiles/default-layout.xml</value>
+	    </list>
+	  </property>
+	</bean> -->
+	
+	<!-- View 이름에따라 직접 뷰 클래스를 지정하도록 설정하는 ViewResolver -->
+	<bean id="beanNameResolver" class="org.springframework.web.servlet.view.BeanNameViewResolver" 
+		p:order="0"/>
+		<!-- <property name="order">
+			<value>0</value>
+		</property>
+	</bean> -->
+	
+	<!-- Tiles 2 Resolver -->
+	<bean id="tilesViewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver"
+	  p:order="1"
+	  p:viewClass="org.springframework.web.servlet.view.tiles2.TilesView" />
+	
+	<bean class="org.springframework.web.servlet.view.UrlBasedViewResolver"
+	    p:order="2" 
+	      p:viewClass="org.springframework.web.servlet.view.JstlView" 
+	      p:prefix="/WEB-INF/views/" p:suffix=".jsp" />
+	
+	<!-- Tiles 2 Configurer -->
+	<bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles2.TilesConfigurer">
+	  <property name="definitions">
+	    <list>
+	      <value>/WEB-INF/tiles/default-layout.xml</value>
+	    </list>
+	  </property>
+	</bean>
+	
+	<!-- jackson -->
+	<bean id="jacksonMessageConverter" class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter"/>
+	
+	<bean id="excelView"  class="com.study.common.view.ExcelView"/>
+	
+	<bean id="pdfView" class="com.study.common.view.PdfView"/>
+	
 
-  <!-- Tiles 2 Configurer -->
-  <bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles2.TilesConfigurer">
-    <property name="definitions">
-      <list>
-        <value>/WEB-INF/tiles/default-layout.xml</value>
-      </list>
-    </property>
-  </bean>
-  
-  <!-- jackson -->
-  <bean id="jacksonMessageConverter" class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter"/>
-  
-  
 </beans>
