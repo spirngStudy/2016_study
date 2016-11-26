@@ -2,6 +2,9 @@
 <%@ include file="/WEB-INF/views/common/include-header.jsp" %>
 <script type="text/javascript">
 	$(document).ready(function(){
+		// 부트스트랩
+		$(":file").filestyle({classButton: "btn btn-primary"});
+		
 	    $("#list").on("click", function(e){ //목록으로 버튼
 	        e.preventDefault();
 	        fn_openBoardList();
@@ -26,29 +29,30 @@
 	}
 </script>
 <div class="container">
-    <form id="frm">
-        <table class="table">
-            <colgroup>
-                <col width="15%">
-                <col width="*"/>
-            </colgroup>
-            <caption>게시글 작성</caption>
-            <tbody>
-                <tr>
-                    <th scope="row">제목</th>
-                    <td><input type="text" id="TITLE" name="TITLE"></input></td>
-                </tr>
-                <tr>
-                    <td colspan="2" class="view_text">
-                        <textarea rows="20" cols="100" title="내용" id="CONTENTS" name="CONTENTS"></textarea>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+    <form id="frm" name="frm" enctype="multipart/form-data">
+    <div class="panel panel-success">
+    	<div class="panel-body">
+    		<span>제목</span>
+    		<input type="text" id="TITLE" name="TITLE" class="form-control"></input>
+    	</div>
+    	<div class="panel-body">
+    		<span>작성자</span>
+    		<input type="text" id="CREA_ID" name="CREA_ID" class="form-control"></input>
+    	</div>
+    	<div class="panel-body">
+    		<span>내용</span>
+    		<textarea title="내용" id="CONTENTS" name="CONTENTS" rows="20" cols="100" class="form-control" ></textarea>
+    	</div>
+        <div class="form-group">
+	      		<input name="file" type="file" class="filestyle" data-classButton="btn btn-primary">
+      	</div>
+    </div>
+    <div class="container" style="text-align: right;">
         <div class="btn-group">
 	        <a href="#this" class="btn btn-primary" id="write" >작성하기</a>
 	        <a href="#this" class="btn btn-primary" id="list" >목록으로</a>
         </div>
+    </div>
     </form>
 </div>
     <%@ include file="/WEB-INF/views/common/include-body.jsp" %>

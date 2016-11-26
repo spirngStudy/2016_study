@@ -7,6 +7,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -83,12 +84,12 @@ public class SampleController {
 	}
 	
 	@RequestMapping("/sample/insertBoard")
-	public ModelAndView insertBoard(@RequestParam Map<String, String> paramMap) {
+	public ModelAndView insertBoard(@RequestParam Map<String, Object> paramMap, HttpServletRequest request) {
 		ModelAndView mv = new ModelAndView();
 		
 		logger.debug("@@@@@@@@@@@@@@@@@ Map" + paramMap);
 		
-		sampleService.insertBoard(paramMap);
+		sampleService.insertBoard(paramMap, request);
 		mv.setViewName("redirect:/sample/openBoardList");
 		return mv;
 	}

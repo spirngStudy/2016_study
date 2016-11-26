@@ -22,7 +22,7 @@ public class SampleDao extends QueryMapper {
 		return selectList(namespace + "selectBoardList");
 	}
 
-	public void insertBoard(Map<String, String> map) {
+	public void insertBoard(Map<String, Object> map) {
 		insert(namespace + "insertBoard", map);
 	}
 
@@ -45,6 +45,11 @@ public class SampleDao extends QueryMapper {
 
 	public void deleteBaord(Map<String, String> map) {
 		delete(namespace + "deleteBoard", map);
+	}
+
+	public void insertFile(Map<String, Object> map) {
+		insert(namespace + "insertFile", map);
+		
 	}
 
 

@@ -21,7 +21,7 @@
 		ORDER BY IDX DESC
 	</select>
 	
-	<insert id="insertBoard" parameterType="map">
+	<insert id="insertBoard" parameterType="map" useGeneratedKeys="true" keyProperty="IDX"  >
 		 INSERT INTO TB_BOARD
         (
             TITLE, 
@@ -38,7 +38,7 @@
             0, 
             'N', 
             NOW(), 
-            'Admin'
+            #{CREA_ID}
         )
 	</insert>
 	
@@ -95,9 +95,32 @@
 			IDX = #{IDX}
 	</update>
 	
-	<delete id="deleteBoard" parameterType="map"	>
+	<delete id="deleteBoard" parameterType="map">
 		DELETE FROM TB_BOARD
 		WHERE 
 			IDX = #{IDX}
 	</delete>
+	
+	<insert id="insertFile" parameterType="map">
+		INSERT INTO FILE
+			(
+				  BOARD_IDX
+				, REAL_FILE_NAME
+				, FILE_PATH
+				, FILE_NAME
+				, FILE_SIZE
+				, FILE_EXT
+				, REG_DATE
+				, REG_ER
+			) VALUES (
+				  #{BOARD_IDX}
+				, #{REAL_FILE_NAME}
+				, #{FILE_PATH}
+				, #{FILE_NAME}
+				, #{FILE_SIZE}
+				, #{FILE_EXT}
+				, NOW()
+				, #{REG_ER}
+			)	
+	</insert>
 </mapper>

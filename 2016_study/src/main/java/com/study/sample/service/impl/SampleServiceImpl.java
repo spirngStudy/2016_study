@@ -1,15 +1,20 @@
 package com.study.sample.service.impl;
 
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
+import com.study.common.util.FileUtil;
 import com.study.sample.dao.SampleDao;
 import com.study.sample.service.SampleService;
 
@@ -20,6 +25,9 @@ public class SampleServiceImpl implements SampleService{
 	
 	@Resource
 	private SampleDao sampleDao;
+	
+	@Resource
+	private FileUtil fileUtil;
 	
 	
 	public List<Map<String, String>> selectMemberList() {
@@ -32,10 +40,16 @@ public class SampleServiceImpl implements SampleService{
 		return sampleDao.selectBoardList(map);
 	}
 	
+	@Transactional
 	@Override
-	public void insertBoard(Map<String, String> map) {
+	public void insertBoard(Map<String, Object> map, HttpServletRequest request) {
 		sampleDao.insertBoard(map);
 		
+		List<Map<String, Object>> list = fileUtil.parseInsertFileInfo(map, request);
+		for(int i=0; i < list.size(); i++) {
+			sampleDao.insertFile(list.get(i));
+		}
+				
 	}
 	
 	@Transactional
