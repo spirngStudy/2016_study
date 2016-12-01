@@ -1,14 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xmlns:p="http://www.springframework.org/schema/p" 
-  xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.2.xsd">
   
 	<!-- Root Context: defines shared resources visible to all other web components -->
+	<context:component-scan base-package="com.study" use-default-filters="false">
+		<context:include-filter type="annotation" expression="org.springframework.stereotype.Service"/>
+		<context:include-filter type="annotation" expression="org.springframework.stereotype.Component"/>
+		<context:include-filter type="annotation" expression="org.springframework.stereotype.Repository"/>
+	</context:component-scan>
+	
 	
 	
 	<!-- ContentNegotiatingViewResolver -->
-	<!-- <bean id="contentNegotiatingResolver"
+	<bean id="contentNegotiatingResolver"
 			class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
 		<property name="order" 
 				  value="#{T(org.springframework.core.Ordered).HIGHEST_PRECEDENCE}" />
@@ -38,7 +50,7 @@
 					<property name="order" value="2"/>
 				</bean>
 				<bean id="jspView" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-			        Example: a logical view name of 'showMessage' is mapped to '/WEB-INF/jsp/showMessage.jsp'
+ 			        <!-- Example: a logical view name of 'showMessage' is mapped to '/WEB-INF/jsp/showMessage.jsp -->
 			        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView" />
 			        <property name="order" value="3" />
 			        <property name="prefix" value="/WEB-INF/views/"/>
@@ -51,36 +63,10 @@
 			<list>
 				<bean id="excelView"  class="com.study.common.view.ExcelView"/>
 				<bean id="jsonView" class="org.springframework.web.servlet.view.json.MappingJacksonJsonView"/>
+<!-- 				<bean id="pdfView" class="com.study.common.view.PdfView"/> -->
 			</list>
 		</property>
-	</bean> -->
-	
-	<!-- Tiles 2 Configurer -->
-	<!-- <bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles2.TilesConfigurer">
-	  <property name="definitions">
-	    <list>
-	      <value>/WEB-INF/tiles/default-layout.xml</value>
-	    </list>
-	  </property>
-	</bean> -->
-	
-	<!-- View 이름에따라 직접 뷰 클래스를 지정하도록 설정하는 ViewResolver -->
-	<bean id="beanNameResolver" class="org.springframework.web.servlet.view.BeanNameViewResolver" 
-		p:order="0"/>
-		<!-- <property name="order">
-			<value>0</value>
-		</property>
-	</bean> -->
-	
-	<!-- Tiles 2 Resolver -->
-	<bean id="tilesViewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver"
-	  p:order="1"
-	  p:viewClass="org.springframework.web.servlet.view.tiles2.TilesView" />
-	
-	<bean class="org.springframework.web.servlet.view.UrlBasedViewResolver"
-	    p:order="2" 
-	      p:viewClass="org.springframework.web.servlet.view.JstlView" 
-	      p:prefix="/WEB-INF/views/" p:suffix=".jsp" />
+	</bean>
 	
 	<!-- Tiles 2 Configurer -->
 	<bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles2.TilesConfigurer">
@@ -91,12 +77,8 @@
 	  </property>
 	</bean>
 	
-	<!-- jackson -->
-	<bean id="jacksonMessageConverter" class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter"/>
 	
-	<bean id="excelView"  class="com.study.common.view.ExcelView"/>
 	
-	<bean id="pdfView" class="com.study.common.view.PdfView"/>
 	
 
 </beans>

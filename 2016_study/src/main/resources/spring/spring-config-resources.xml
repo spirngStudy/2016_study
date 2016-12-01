@@ -11,5 +11,13 @@
 		<property name="maxInMemorySize" value="100000000" />
 		<property name="defaultEncoding" value="UTF-8" />
 	</bean>
+	
+	<!-- 확장자체크 -->
+	
+	<!-- 다국어 메시지 -->
+	
+	
+	
+	
 
 </beans>
