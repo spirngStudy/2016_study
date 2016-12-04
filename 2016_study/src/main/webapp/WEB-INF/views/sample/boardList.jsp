@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ include file="/WEB-INF/views/common/include-header.jsp" %>
+<%@ include file="/WEB-INF/views/common/sample/include-header.jsp" %>
 <script type="text/javascript">
 	$(document).ready(function(){
 		// 부트스트랩
@@ -46,7 +46,7 @@
     
     function fn_excelFileDownload() {
     	var comSubmit = new ComSubmit();
-    	comSubmit.setUrl("<c:url value='/excelFileDownload' />");
+    	comSubmit.setUrl("<c:url value='/download.xls' />");
     	comSubmit.submit();
     }
     
@@ -137,4 +137,4 @@
   </div>
 </div>
 <!-- //모달팝업 -->
-<%@ include file="/WEB-INF/views/common/include-body.jsp" %>
+<%@ include file="/WEB-INF/views/common/sample/include-body.jsp" %>
