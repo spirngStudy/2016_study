@@ -15,7 +15,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller(value = "mainController")
 public class MainController {
   private static final Logger logger = LoggerFactory.getLogger(BbsController.class);
-//게시판 목록
+  
+  @RequestMapping("/sample")
+  public String sample() {
+	  return "/sample/sample";
+  }
+  
+  
+  
+  //게시판 목록
   @RequestMapping(value = "/", method = RequestMethod.GET)
   public String main(Locale locale, Model model) {
       logger.info("Welcome home! The client locale is {}.", locale);
@@ -26,6 +34,6 @@ public class MainController {
       String formattedDate = dateFormat.format(date);
     
       model.addAttribute("serverTime", formattedDate );
-      return "/index.tiles";
+      return "/sample/index";
   }
 }

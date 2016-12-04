@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%-- <%@ include file="/WEB-INF/views/common/include-header.jsp" %> --%>
+<%-- <%@ include file="/WEB-INF/views/common/sample/include-header.jsp" %> --%>
 <script>
 
 	/* $(document).ready(function(){
@@ -118,4 +118,4 @@ mainApp.controller('BoardCtrl', ['$scope', '$http', '$location', '$window', func
 	</div>
 </div>
 <!-- <a href="#this" id="write" class="btn btn-success">글쓰기</a> -->
-<%-- <%@ include file="/WEB-INF/views/common/include-body.jsp" %> --%>
+<%-- <%@ include file="/WEB-INF/views/common/sample/include-body.jsp" %> --%>

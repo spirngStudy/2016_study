@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<%@ include file="/WEB-INF/views/common/include-header.jsp" %>
+<%@ include file="/WEB-INF/views/common/sample/include-header.jsp" %>
 <script type="text/javascript">
 	$(document).ready(function () {
 		$("#list").on("click", function(e) {
@@ -66,5 +66,5 @@
 			<a href="#this" class="btn btn-primary" id="update" target="_self" ng-non-bindable>수정하기</a>
 		</div>
 	</div>
-	<%@ include file="/WEB-INF/views/common/include-body.jsp" %>
+	<%@ include file="/WEB-INF/views/common/sample/include-body.jsp" %>
 </div>

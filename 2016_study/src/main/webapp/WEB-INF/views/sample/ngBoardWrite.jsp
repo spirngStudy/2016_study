@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ include file="/WEB-INF/views/common/include-header.jsp" %>
+<%@ include file="/WEB-INF/views/common/sample/include-header.jsp" %>
 <script type="text/javascript">
 	$(document).ready(function(){
 	    $("#list").on("click", function(e){ //목록으로 버튼
@@ -51,4 +51,4 @@
         </div>
     </form>
 </div>
-    <%@ include file="/WEB-INF/views/common/include-body.jsp" %>
+    <%@ include file="/WEB-INF/views/common/sample/include-body.jsp" %>
