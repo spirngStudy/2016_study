@@ -39,7 +39,7 @@ public class SampleDao extends QueryMapper {
 		insert(namespace + "insertTest", map);
 	}
 
-	public void updateBoard(Map<String, String> map) {
+	public void updateBoard(Map<String, Object> map) {
 		update(namespace + "updateBoard", map);
 	}
 
@@ -50,6 +50,24 @@ public class SampleDao extends QueryMapper {
 	public void insertFile(Map<String, Object> map) {
 		insert(namespace + "insertFile", map);
 		
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<Map<String, String>> selectFileList(Map<String, String> map) {
+		return selectList(namespace + "selectFileList", map);
+	}
+
+	@SuppressWarnings("unchecked")
+	public Map<String, Object> selectFileInfo(Map<String, Object> map) {
+		return (Map<String, Object>) selectOne(namespace + "selectFileInfo", map);
+	}
+
+	public void deleteFileList(Map<String, Object> map) {
+		update(namespace + "deleteFileList", map);
+	}
+	
+	public void updateFile(Map<String, Object> map) {
+		update(namespace + "updateFile", map);
 	}
 
 

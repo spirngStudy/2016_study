@@ -24,7 +24,7 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 @Component("fileUtils")
 public class FileUtil {
-	private static final String filePath = "C:\\project\\file\\";
+	public static final String filePath = "C:\\project\\file\\";
 	
 	public List<Map<String, Object>> parseInsertFileInfo(Map<String, Object> map, HttpServletRequest request) {
 		MultipartHttpServletRequest multipartHttpServletRequest = (MultipartHttpServletRequest)request;
@@ -39,6 +39,9 @@ public class FileUtil {
 		Map<String, Object> listMap = null;
 		
 		String boardIdx = (String) String.valueOf(map.get("IDX"));
+		String requestName = null;
+		String idx = null;
+		
 		
 		File file = new File(filePath);
 		if(file.exists()==false) {
@@ -62,6 +65,7 @@ public class FileUtil {
 				}
 				
 				listMap = new HashMap<String, Object>();
+				listMap.put("IS_NEW", "Y");
 				listMap.put("BOARD_IDX", boardIdx);
 				listMap.put("REAL_FILE_NAME", originalFileName);
 				listMap.put("FILE_NAME", storedFileName);
@@ -71,9 +75,16 @@ public class FileUtil {
 				listMap.put("REG_DATE", map.get("CREA_DTM"));
 				listMap.put("REG_ER", map.get("CREA_ID"));
 				list.add(listMap);
-		
+			} else {
+				requestName = multipartFile.getName();
+				idx = "IDX_" + requestName.substring(requestName.indexOf("_")+1);
+				if(map.containsKey(idx) == true && map.get(idx) != null) {
+					listMap = new HashMap<String, Object>();
+					listMap.put("IS_NEW", "N");
+					listMap.put("IDX", map.get(idx));
+					list.add(listMap);
+				}
 			}
-			
 		}
 		
 		return list;

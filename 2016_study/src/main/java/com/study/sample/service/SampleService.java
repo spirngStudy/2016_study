@@ -13,9 +13,11 @@ public interface SampleService {
 
 	void insertBoard(Map<String, Object> map, HttpServletRequest request);
 
-	Map<String, String> selectBoardDetail(Map<String, String> map) throws Exception;
+	Map<String, Object> selectBoardDetail(Map<String, String> map) throws Exception;
 
-	void updateBoard(Map<String, String> map);
+	void updateBoard(Map<String, Object> map, HttpServletRequest request);
 
 	void deleteBoard(Map<String, String> map);
+	
+	Map<String, Object> selectFileInfo(Map<String, Object> map);
 }

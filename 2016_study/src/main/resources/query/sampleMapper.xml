@@ -123,4 +123,41 @@
 				, #{REG_ER}
 			)	
 	</insert>
+	
+	<select id="selectFileList" parameterType="map" resultType="map">
+		SELECT
+			IDX,
+			REAL_FILE_NAME,
+			ROUND(FILE_SIZE/1024,1) AS FILE_SIZE
+		FROM
+			FILE
+		WHERE
+			BOARD_IDX = #{IDX}
+			AND DEL_YN = 'N'
+	</select>
+	
+	<select id="selectFileInfo" parameterType="map" resultType="map">
+		SELECT
+			FILE_NAME,
+			REAL_FILE_NAME
+		FROM
+			FILE
+		WHERE
+			IDX = #{IDX}
+	</select>
+	
+	<update id="deleteFileList" parameterType="map">
+		UPDATE FILE SET
+			DEL_YN = 'Y'
+		WHERE
+			BOARD_IDX = #{IDX}
+	</update>
+	
+	<update id="updateFile" parameterType="map">
+		UPDATE FILE SET
+			DEL_YN = 'N'
+		WHERE
+			IDX = #{IDX}	
+	</update>
+	
 </mapper>

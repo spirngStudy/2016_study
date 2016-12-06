@@ -56,7 +56,7 @@ public class NgController {
 	public ModelAndView openBoardDetail(@RequestParam Map<String, String> paramMap) throws Exception {
 		ModelAndView mv = new ModelAndView();
 		
-		Map<String, String> map = sampleService.selectBoardDetail(paramMap);
+		Map<String, Object> map = sampleService.selectBoardDetail(paramMap);
 		mv.addObject("map", map);
 		mv.setViewName("/sample/ngBoardDetail");
 		return mv;

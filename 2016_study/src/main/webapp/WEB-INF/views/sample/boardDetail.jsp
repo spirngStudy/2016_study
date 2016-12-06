@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<%@ include file="/WEB-INF/views/common/include-header.jsp" %>
+<%@ include file="/WEB-INF/views/common/sample/include-header.jsp" %>
 <script type="text/javascript">
 	$(document).ready(function () {
 		$("#list").on("click", function(e) {
@@ -14,6 +14,11 @@
 			e.preventDefault();
 			fn_openBoardUpdate();
 		});
+		
+		$("a[name='file']").on("click", function(e) {
+			e.preventDefault();
+			fn_downloadFile($(this));
+		});
 	});
 	
 	function fn_openBoardList() {
@@ -21,6 +26,7 @@
 		comSubmit.setUrl("<c:url value='/sample/openBoardList'/>");
 		comSubmit.submit();		
 	}
+	
 	function fn_openBoardUpdate() {
 		var idx = "${map.IDX}";
 		var comSubmit = new ComSubmit();
@@ -28,43 +34,56 @@
 		comSubmit.addParam("IDX", idx);
 		comSubmit.submit();
 	}
+	
+	function fn_downloadFile(obj) {
+		var idx = obj.parent().find("#IDX").val();
+		var comSubmit = new ComSubmit();
+		comSubmit.setUrl("<c:url value='/sample/downloadFile'/>");
+		comSubmit.addParam("IDX", idx);
+		comSubmit.submit();
+	}
 </script>
+
 <div class="container">
-	<table class="table">
-		<colgroup>
-			<col width="15%">
-			<col width="35%">
-			<col width="15%">
-			<col width="35%">
-		</colgroup>
-		<caption>게시글 상세</caption>
-		<tbody>
-			<tr>
-				<th scope="row">글 번호</th>
-				<td>${map.IDX }</td>
-				<th scope="row">조회수</th>
-				<td>${map.HIT_CNT }</td>
-			</tr>
-			<tr>
-				<th scope="row">작성자</th>
-				<td>${map.CREA_ID }</td>
-				<th scope="row">작성시간</th>
-				<td>${map.CREA_DTM }</td>
-			</tr>
-			<tr>
-				<th scope="row">제목</th>
-				<td colspan="3">${map.TITLE}</td>
-			</tr>
-			<tr>
-				<td colspan="4">${map.CONTENTS}</td>
-			</tr>
-		</tbody>
-	</table>
+    <div class="panel panel-success">
+    	<div class="panel-heading">
+    		<div class="row">
+	    		<div class="col-lg-6 col-md-6">
+		    		<strong>글번호 : </strong>${map.IDX }
+	    		</div>
+	    		<div class="col-lg-6 col-md-6">
+	    			<strong>조회수 : </strong>${map.HIT_CNT }
+	    		</div>
+    		</div>
+    	</div>
+    	<div class="panel-heading">
+    		<div class="row">
+    			<div class="col-lg-6 col-md-6">
+    				<strong>작성자 : </strong>${map.CREA_ID }
+    			</div>
+    			<div class="col-lg-6 col-md-6">
+    				<strong>작성시간 : </strong>${map.CREA_DTM }
+    			</div>
+    		</div>
+    	</div>
+    	<div class="panel-body"><strong>제목 : </strong>${map.TITLE }</div>
+    	<div class="panel-body">${map.CONTENTS }</div>
+    	<div class="panel-footer">
+  			<c:forEach var="row" items="${list}">
+				<p>
+					<span class="glyphicon glyphicon-download"></span>
+					<input type="hidden" id="IDX" value="${row.IDX}">
+					<a href="#this" name="file">${row.REAL_FILE_NAME}</a>
+					(${row.FILE_SIZE}kb)
+				</p>
+			</c:forEach>
+    	</div>
+   	</div>
 	<div class="container">
 		<div class="btn-group">
 			<a href="#this" class="btn btn-primary" id="list" target="_self" ng-non-bindable>목록으로</a>
 			<a href="#this" class="btn btn-primary" id="update" target="_self" ng-non-bindable>수정하기</a>
 		</div>
 	</div>
-	<%@ include file="/WEB-INF/views/common/include-body.jsp" %>
+	<%@ include file="/WEB-INF/views/common/sample/include-body.jsp" %>
 </div>
