@@ -36,7 +36,7 @@
     function fn_openBoardDetail(obj){
         var comSubmit = new ComSubmit();
         comSubmit.setUrl("<c:url value='/sample/openBoardDetail' />");
-        comSubmit.addParam("IDX", obj.parent().find("#IDX").val());
+        comSubmit.addParam("BOARD_IDX", obj.parent().find("#BOARD_IDX").val());
         comSubmit.submit();
     }
     
@@ -78,13 +78,13 @@
 		            <c:when test="${fn:length(list) > 0}">
 		                <c:forEach items="${list }" var="row">
 		                    <tr>
-		                        <td>${row.IDX }</td>
+		                        <td>${row.BOARD_IDX }</td>
 		                        <td class="title">
 		                        	<a href="#this" name="title">${row.TITLE }</a>
-		                        	<input type="hidden" id="IDX" value="${row.IDX}">
+		                        	<input type="hidden" id="BOARD_IDX" value="${row.BOARD_IDX}">
 		                       	</td>
 		                        <td>${row.HIT_CNT }</td>
-		                        <td>${row.CREA_DTM }</td>
+		                        <td>${row.REG_DATE }</td>
 		                    </tr>
 		                </c:forEach>
 		            </c:when>

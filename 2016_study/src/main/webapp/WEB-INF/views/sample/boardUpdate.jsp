@@ -49,7 +49,7 @@
 	function fn_deleteBoard() {
 		var comSubmit = new ComSubmit();
 		comSubmit.setUrl("<c:url value='/sample/deleteBoard'/>");
-		comSubmit.addParam("IDX", $("#IDX").val());
+		comSubmit.addParam("BOARD_IDX", $("#BOARD_IDX").val());
 		comSubmit.submit();		
 	}
 	
@@ -76,8 +76,8 @@
     	<div class="panel-heading">
     		<div class="row">
 	    		<div class="col-lg-6 col-md-6">
-		    		<strong>글번호 : </strong>${map.IDX }
-		    		<input type="hidden" id="IDX" name="IDX" value="${map.IDX }" >
+		    		<strong>글번호 : </strong>${map.BOARD_IDX }
+		    		<input type="hidden" id="BOARD_IDX" name="BOARD_IDX" value="${map.BOARD_IDX }" >
 	    		</div>
 	    		<div class="col-lg-6 col-md-6">
 	    			<strong>조회수 : </strong>${map.HIT_CNT }
@@ -87,11 +87,11 @@
     	<div class="panel-heading">
     		<div class="row">
     			<div class="col-lg-6 col-md-6">
-    				<strong>작성자 : </strong>${map.CREA_ID }
-    				<input type="hidden" name="CREA_ID" value="${map.CREA_ID }">
+    				<strong>작성자 : </strong>${map.REG_ID }
+    				<input type="hidden" name="REG_ID" value="${map.REG_ID }">
     			</div>
     			<div class="col-lg-6 col-md-6">
-    				<strong>작성시간 : </strong>${map.CREA_DTM }
+    				<strong>작성시간 : </strong>${map.REG_DATE }
     			</div>
     		</div>
     	</div>
@@ -107,7 +107,7 @@
 	       	<div id="fileDiv" class="row">
 	        	<c:forEach var="row" items="${list}" varStatus="var">
 		       		<div class="col-lg-11 col-md-11">
-		      			<input type="hidden" id="IDX" name="IDX_${var.index }" value="${row.IDX}"/>
+		      			<input type="hidden" id="FILE_IDX" name="FILE_IDX_${var.index }" value="${row.FILE_IDX}"/>
 		      			<span>${row.REAL_FILE_NAME}	</span>
 		      			<input type="file" id="file_${var.index}" name="file_${var.index}" value="${row.REAL_FILE_NAME}" class="filestyle" data-classButton="btn btn-primary">
 			      		(${row.FILE_SIZE}kb)

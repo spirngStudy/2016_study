@@ -65,7 +65,7 @@
     	</div>
     	<div class="panel-body">
     		<span>작성자</span>
-    		<input type="text" id="CREA_ID" name="CREA_ID" class="form-control"></input>
+    		<input type="text" id="REG_ID" name="REG_ID" class="form-control"></input>
     	</div>
     	<div class="panel-body">
     		<span>내용</span>

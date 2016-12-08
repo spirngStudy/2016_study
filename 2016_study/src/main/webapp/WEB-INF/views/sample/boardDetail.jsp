@@ -28,15 +28,15 @@
 	}
 	
 	function fn_openBoardUpdate() {
-		var idx = "${map.IDX}";
+		var idx = "${map.BOARD_IDX}";
 		var comSubmit = new ComSubmit();
 		comSubmit.setUrl("<c:url value='/sample/openBoardUpdate'/>");
-		comSubmit.addParam("IDX", idx);
+		comSubmit.addParam("BOARD_IDX", idx);
 		comSubmit.submit();
 	}
 	
 	function fn_downloadFile(obj) {
-		var idx = obj.parent().find("#IDX").val();
+		var idx = obj.parent().find("#FILE_IDX").val();
 		var comSubmit = new ComSubmit();
 		comSubmit.setUrl("<c:url value='/sample/downloadFile'/>");
 		comSubmit.addParam("IDX", idx);
@@ -49,7 +49,7 @@
     	<div class="panel-heading">
     		<div class="row">
 	    		<div class="col-lg-6 col-md-6">
-		    		<strong>글번호 : </strong>${map.IDX }
+		    		<strong>글번호 : </strong>${map.BOARD_IDX }
 	    		</div>
 	    		<div class="col-lg-6 col-md-6">
 	    			<strong>조회수 : </strong>${map.HIT_CNT }
@@ -59,10 +59,10 @@
     	<div class="panel-heading">
     		<div class="row">
     			<div class="col-lg-6 col-md-6">
-    				<strong>작성자 : </strong>${map.CREA_ID }
+    				<strong>작성자 : </strong>${map.REG_ID }
     			</div>
     			<div class="col-lg-6 col-md-6">
-    				<strong>작성시간 : </strong>${map.CREA_DTM }
+    				<strong>작성시간 : </strong>${map.REG_DATE }
     			</div>
     		</div>
     	</div>
@@ -72,7 +72,7 @@
   			<c:forEach var="row" items="${list}">
 				<p>
 					<span class="glyphicon glyphicon-download"></span>
-					<input type="hidden" id="IDX" value="${row.IDX}">
+					<input type="hidden" id="FILE_IDX" value="${row.FILE_IDX}">
 					<a href="#this" name="file">${row.REAL_FILE_NAME}</a>
 					(${row.FILE_SIZE}kb)
 				</p>
