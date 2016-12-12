@@ -80,7 +80,7 @@ public class SampleServiceImpl implements SampleService{
 	@Transactional(rollbackFor=Exception.class, propagation=Propagation.REQUIRED)
 	@Override
 	public void updateBoard(Map<String, Object> map, HttpServletRequest request) {
-		sampleDao.updateBoard(map);
+		sampleDao.updateBoard(map); 
 		
 		sampleDao.deleteFileList(map);
 		List<Map<String, Object>> list = fileUtil.parseInsertFileInfo(map, request);

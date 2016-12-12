@@ -25,6 +25,12 @@ import org.springframework.web.servlet.ModelAndView;
 import com.study.common.util.FileUtil;
 import com.study.sample.service.SampleService;
 
+/**
+ * @설명			: sample관련 컨트롤러  
+ * @작성일		: 2016. 12. 10. 오후 11:35:36
+ * @작성자		: Myeong-seok(sirosms@gmail.com)
+ * @version 	: 12st v1.0
+ */
 @Controller
 public class SampleController {
 	
@@ -100,7 +106,7 @@ public class SampleController {
 		ModelAndView mv = new ModelAndView();
 		
 		sampleService.updateBoard(paramMap, request);
-		mv.addObject("IDX", paramMap.get("IDX"));
+		mv.addObject("BOARD_IDX", paramMap.get("BOARD_IDX"));
 		mv.setViewName("redirect:/sample/openBoardDetail");
 		return mv;
 	}

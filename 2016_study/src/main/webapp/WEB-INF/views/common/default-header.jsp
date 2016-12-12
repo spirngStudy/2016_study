@@ -7,7 +7,7 @@
         <button type="button" class="navbar-toggle" data-toggle="collapse"  data-target=".navbar-ex1-collapse">
           <span class="sr-only">Toggle navigation</span> <span    class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="./main"><img class="img-thumbnail" width="80px" src="images/logo.png" alt="" ></a>
+        <a class="navbar-brand" href="/admin/main/main"><img class="img-thumbnail" width="80px" src="/images/logo.png" alt="" ></a>
       </div>
       <!-- Top Menu Items -->
       <ul class="nav navbar-right top-nav">
@@ -29,7 +29,7 @@
           </li>
           <li><a href="javascript:;" data-toggle="collapse" data-target="#member"><i class="fa fa-fw fa-user"></i> 회원<i class="fa fa-fw fa-caret-down"></i></a>
             <ul id="member" class="collapse">
-              <li><a href="./member">회원관리</a></li>
+              <li><a href="/admin/member/member">회원관리</a></li>
               <li><a href="#">블랙리스트관리</a></li>
               <li><a href="#">현재접속중회원관리</a></li>
               <li><a href="#">탈퇴리스트관리</a></li>
@@ -41,12 +41,12 @@
           <li><a href="javascript:;" data-toggle="collapse" data-target="#goods"><i class="fa fa-fw fa-leaf"></i> 상품<i class="fa fa-fw fa-caret-down"></i></a>
             <ul id="goods" class="collapse">
               <li><a href="./goodsReg">상품등록 설정</a></li>
-              <li><a href="./catalog">일반상품</a></li>
+              <li><a href="/admin/goods/catalog">일반상품</a></li>
               <li><a href="./package">패키지상품</a></li>
             </ul></li>
           <li><a href="javascript:;" data-toggle="collapse" data-target="#order"><i class="fa fa-fw fa-shopping-cart"></i>  주문<i class="fa fa-fw fa-caret-down"></i></a>
             <ul id="order" class="collapse">
-              <li><a href="./order_list">주문리스트</a></li>
+              <li><a href="/admin/order/orderList">주문리스트</a></li>
               <li><a href="#">개인결제리스트</a></li>
               <li><a href="#">자동입금확인리스트</a></li>
               <li><a href="#">매출리스트</a></li>

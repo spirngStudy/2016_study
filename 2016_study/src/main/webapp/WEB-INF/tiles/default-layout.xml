@@ -24,6 +24,8 @@
 		<put-attribute name="footer" value="/WEB-INF/views/common/sample/default-footer.jsp" />
 	</definition>
 	
+	
+	
 	<definition name="/*.tiles" extends="layouts-tiles">
 		<put-attribute name="content" value="/WEB-INF/views/{1}.jsp" />
 	</definition>
@@ -35,8 +37,6 @@
 	<definition name="/sample/*" extends="layouts-tiles2">
 		<put-attribute name="content" value="/WEB-INF/views/sample/{1}.jsp" />
 	</definition>
-	
-	
 	
 	<definition name="/*/*.tiles" extends="layouts-tiles">
 		<put-attribute name="content" value="/WEB-INF/views/{1}/{2}.jsp" />

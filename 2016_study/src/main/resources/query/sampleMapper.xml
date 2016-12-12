@@ -5,31 +5,31 @@
 		SELECT 
 			*
 		  FROM 
-		    MEMBER_INFO
+		    MEM_MEMBER
 	</select>
 	
 	<select id="selectBoardList" parameterType="map" resultType="map">
 		SELECT
-		    IDX,
+		    BOARD_IDX,
 		    TITLE,
 		    HIT_CNT,
-		    CREA_DTM
+		    REG_DATE
 		FROM
-		    TB_BOARD
+		    BRD_BOARD
 		WHERE
-		    DEL_GB = 'N'    
-		ORDER BY IDX DESC
+		    DEL_YN = 'N'    
+		ORDER BY BOARD_IDX DESC
 	</select>
 	
-	<insert id="insertBoard" parameterType="map" useGeneratedKeys="true" keyProperty="IDX"  >
-		 INSERT INTO TB_BOARD
+	<insert id="insertBoard" parameterType="map" useGeneratedKeys="true" keyProperty="BOARD_IDX"  >
+		 INSERT INTO BRD_BOARD
         (
             TITLE, 
             CONTENTS, 
             HIT_CNT, 
-            DEL_GB, 
-            CREA_DTM, 
-            CREA_ID
+            DEL_YN, 
+            REG_DATE, 
+            REG_ID
         )
         VALUES
         (
@@ -38,42 +38,42 @@
             0, 
             'N', 
             NOW(), 
-            #{CREA_ID}
+            #{REG_ID}
         )
 	</insert>
 	
 	<select id="selectBoardDetail" parameterType="map" resultType="map" >
 		SELECT
-            IDX,
+            BOARD_IDX,
             HIT_CNT,
-            CREA_ID,
-            CREA_DTM,
+            REG_ID,
+            REG_DATE,
             TITLE,
             CONTENTS
         FROM
-            TB_BOARD
+            BRD_BOARD
         WHERE
-            IDX = #{IDX}
+            BOARD_IDX = #{BOARD_IDX}
 	</select>
 	
 	<update id="updateHitCnt" parameterType="map" >
-		UPDATE TB_BOARD 
+		UPDATE BRD_BOARD 
         SET
             HIT_CNT = IFNULL(HIT_CNT, 0) + 1
         WHERE
-            IDX = #{IDX}
+            BOARD_IDX = #{BOARD_IDX}
 	</update>
 	
 	<insert id="insertTest" parameterType="map">
-		 INSERT INTO TB_BOARD
+		 INSERT INTO BRD_BOARD
         (
-        	IDX,
+        	BOARD_IDX,
             TITLE, 
             CONTENTS, 
             HIT_CNT, 
-            DEL_GB, 
-            CREA_DTM, 
-            CREA_ID
+            DEL_YN, 
+            REG_DATE, 
+            REG_ID
         )
         VALUES
         (
@@ -88,15 +88,15 @@
 	</insert>
 	
 	<update id="updateBoard" parameterType="map">
-		UPDATE TB_BOARD SET
+		UPDATE BRD_BOARD SET
 			TITLE = #{TITLE},
 			CONTENTS = #{CONTENTS}
 		WHERE
-			IDX = #{IDX}
+			BOARD_IDX = #{BOARD_IDX}
 	</update>
 	
 	<delete id="deleteBoard" parameterType="map">
-		DELETE FROM TB_BOARD
+		DELETE FROM BRD_BOARD
 		WHERE 
 			IDX = #{IDX}
 	</delete>
@@ -111,7 +111,7 @@
 				, FILE_SIZE
 				, FILE_EXT
 				, REG_DATE
-				, REG_ER
+				, REG_ID
 			) VALUES (
 				  #{BOARD_IDX}
 				, #{REAL_FILE_NAME}
@@ -120,19 +120,19 @@
 				, #{FILE_SIZE}
 				, #{FILE_EXT}
 				, NOW()
-				, #{REG_ER}
+				, #{REG_ID}
 			)	
 	</insert>
 	
 	<select id="selectFileList" parameterType="map" resultType="map">
 		SELECT
-			IDX,
+			FILE_IDX,
 			REAL_FILE_NAME,
 			ROUND(FILE_SIZE/1024,1) AS FILE_SIZE
 		FROM
 			FILE
 		WHERE
-			BOARD_IDX = #{IDX}
+			BOARD_IDX = #{BOARD_IDX}
 			AND DEL_YN = 'N'
 	</select>
 	
@@ -143,21 +143,21 @@
 		FROM
 			FILE
 		WHERE
-			IDX = #{IDX}
+			FILE_IDX = #{FILE_IDX}
 	</select>
 	
 	<update id="deleteFileList" parameterType="map">
 		UPDATE FILE SET
 			DEL_YN = 'Y'
 		WHERE
-			BOARD_IDX = #{IDX}
+			BOARD_IDX = #{BOARD_IDX}
 	</update>
 	
 	<update id="updateFile" parameterType="map">
 		UPDATE FILE SET
 			DEL_YN = 'N'
 		WHERE
-			IDX = #{IDX}	
+			FILE_IDX = #{FILE_IDX}	
 	</update>
 	
 </mapper>

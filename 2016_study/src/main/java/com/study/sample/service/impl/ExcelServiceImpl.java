@@ -117,9 +117,9 @@ public class ExcelServiceImpl implements ExcelService{
 									map.put("CONTENTS", value);
 									break;
 								case 2:	// CREA_DTM
-									map.put("CREA_DTM", value);
+									map.put("REG_DATE", value);
 								case 3:	// CREA_ID
-									map.put("CREA_ID", value);
+									map.put("REG_ID", value);
 								}
 							
 							}

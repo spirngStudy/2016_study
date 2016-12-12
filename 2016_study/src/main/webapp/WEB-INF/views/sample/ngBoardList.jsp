@@ -99,13 +99,13 @@ mainApp.controller('BoardCtrl', ['$scope', '$http', '$location', '$window', func
 			    <tbody>
 			        
 	            <tr ng-repeat="list in boardList.list">
-	                <td>{{list.IDX}}</td>
+	                <td>{{list.BOARD_IDX}}</td>
 	                <td class="title">
 	                	<a href="" name="title"  ng-click="submitForm()">{{list.TITLE}}</a>
-	                	<input type="hidden" name="IDX" value="{{list.IDX}}">
+	                	<input type="hidden" name="IDX" value="{{list.BOARD_IDX}}">
 	               	</td>
 	                <td>{{list.HIT_CNT}}</td>
-	                <td>{{list.CREA_DTM}}</td>
+	                <td>{{list.REG_DATE}}</td>
 	            </tr>
 			        
 	<!--             <tr> -->

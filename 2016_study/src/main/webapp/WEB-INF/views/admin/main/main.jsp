@@ -19,7 +19,7 @@
 					<div class="col-lg-12 col-md-6">
 					
             <h1 class="page-header">
-              제목: <img class="img-thumbnail" width="80px" src="images/logo.png" alt="" >쇼핑몰 관리자 페이지 <small>이렇게 구성하자</small>
+              제목: <img class="img-thumbnail" width="80px" src="/images/logo.png" alt="" >쇼핑몰 관리자 페이지 <small>이렇게 구성하자</small>
             </h1>
 						본문 들어가는 부분
 						

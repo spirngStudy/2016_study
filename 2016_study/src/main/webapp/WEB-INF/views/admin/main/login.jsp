@@ -13,14 +13,14 @@
 		<title>12번가 쇼핑몰 관리자</title>
 		
 		<!-- Bootstrap Core CSS -->
-		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="/css/bootstrap.min.css" rel="stylesheet">
 		
 		<!-- Custom CSS -->
-		<link href="css/admin.css" rel="stylesheet">
+		<link href="/css/admin.css" rel="stylesheet">
 		
 		
 		<!-- Custom Fonts -->
-		<link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
+		<link href="/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 		
 		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -39,7 +39,7 @@
             <div class="col-md-4 col-md-offset-4">
                 <div class="login-panel panel panel-default">
                     <div class="panel-heading">
-                        <h3 class="panel-title"><img class="img-thumbnail" width="80px" src="images/logo.png" alt="" ></h3>
+                        <h3 class="panel-title"><img class="img-thumbnail" width="80px" src="/images/logo.png" alt="" ></h3>
                     </div>
                     <div class="panel-body">
                         <form role="form">
@@ -56,7 +56,7 @@
                                     </label>
                                 </div>
                                 <!-- Change this to a button or input when using this as a form -->
-                                <a href="./main" class="btn btn-lg btn-success btn-block">Login</a>
+                                <a href="/admin/main/main" class="btn btn-lg btn-success btn-block">Login</a>
                             </fieldset>
                         </form>
                     </div>
@@ -66,10 +66,10 @@
     </div>
 
    <!-- jQuery -->
-  <script src="js/jquery.js"></script>
+  <script src="/js/jquery.js"></script>
 
   <!-- Bootstrap Core JavaScript -->
-  <script src="js/bootstrap.min.js"></script>
+  <script src="/js/bootstrap.min.js"></script>
 
 </body>
 

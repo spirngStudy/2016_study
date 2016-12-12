@@ -7,6 +7,6 @@
 	</h1>
 	
 	<P>  The time on the server is ${serverTime}. </P>
-	<p><button type="button" class="btn btn-success btn-lg" onclick="location.href='./login'">admin Go</button></p>
-	<p><button type="button" class="btn btn-warning btn-lg" onclick="location.href='./sample'">sample Go!!!</button></p>
+	<p><button type="button" class="btn btn-success btn-lg" onclick="location.href='/admin/main/login'">admin Go</button></p>
+	<p><button type="button" class="btn btn-warning btn-lg" onclick="location.href='/sample'">sample Go!!!</button></p>
 </div>
